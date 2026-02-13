@@ -6,30 +6,49 @@
 <title>Dillip Kumar Panda | PowerBI Developer Portfolio</title>
 
 <style>
-html {
-    scroll-behavior: smooth;
+
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --nav-bg: #111827;
+    --card-bg: #ffffff;
+    --primary: #1d4ed8;
+    --glow: none;
+}
+
+/* DARK MODE */
+body.dark {
+    --bg-color: linear-gradient(135deg,#0f172a,#1e293b);
+    --text-color: #e2e8f0;
+    --nav-bg: rgba(15,23,42,0.95);
+    --card-bg: rgba(255,255,255,0.05);
+    --primary: #38bdf8;
+    --glow: 0 0 20px rgba(56,189,248,0.6);
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f8fafc;
-    color: #1e293b;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.4s ease;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 nav {
     position: sticky;
     top: 0;
-    background: rgba(17,24,39,0.95);
-    backdrop-filter: blur(8px);
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
     padding: 18px;
     text-align: center;
     z-index: 1000;
+    transition: 0.4s;
 }
 
 nav a {
-    color: #fff;
+    color: white;
     margin: 0 20px;
     text-decoration: none;
     font-weight: 600;
@@ -37,145 +56,175 @@ nav a {
 }
 
 nav a:hover {
-    color: #38bdf8;
+    color: var(--primary);
 }
 
-/* HERO */
+/* ================= THEME TOGGLE ================= */
+.theme-toggle {
+    position: absolute;
+    right: 25px;
+    top: 18px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "🌙";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+input:checked + .slider {
+    background-color: #38bdf8;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "☀";
+}
+
+/* ================= HEADER ================= */
 header {
-    background: linear-gradient(135deg,#0f172a,#1d4ed8);
-    padding: 140px 20px;
+    padding: 120px 20px;
     text-align: center;
-    color: white;
 }
 
 header h1 {
-    font-size: 56px;
+    font-size: 48px;
     margin: 0;
-    letter-spacing: 1px;
 }
 
 header p {
-    font-size: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    line-height: 1.6;
-    opacity: 0.9;
+    max-width: 850px;
+    margin: 25px auto;
+    line-height: 1.7;
 }
 
+/* ================= BUTTONS ================= */
 button {
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
     transition: 0.3s;
 }
 
 button:hover {
-    background: #0ea5e9;
+    box-shadow: var(--glow);
     transform: translateY(-3px);
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section {
-    padding: 100px 20px;
-    max-width: 1200px;
-    margin: auto;
+    padding: 80px 10%;
 }
 
 h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    position: relative;
+    margin-bottom: 30px;
 }
 
-h2::after {
-    content: "";
-    width: 60px;
-    height: 4px;
-    background: #38bdf8;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-}
-
-/* KPI METRICS */
+/* ================= METRICS ================= */
 .metrics {
     display: flex;
-    justify-content: space-between;
     gap: 30px;
+    justify-content: center;
 }
 
 .metric-box {
-    background: white;
-    padding: 40px;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
     flex: 1;
-    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
     transition: 0.3s;
+    box-shadow: var(--glow);
 }
 
 .metric-box:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 }
 
 .metric-box h3 {
-    font-size: 42px;
+    font-size: 36px;
     margin: 0;
-    color: #1d4ed8;
+    color: var(--primary);
 }
 
-/* PROJECTS */
+/* ================= TECH STACK ================= */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tech-stack span {
+    background: var(--card-bg);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: var(--glow);
+}
+
+/* ================= PROJECT CARDS ================= */
 .project {
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    margin-bottom: 60px;
-    transition: 0.3s;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 50px;
+    box-shadow: var(--glow);
+    transition: 0.4s;
 }
 
 .project:hover {
     transform: translateY(-6px);
 }
 
-.project h3 {
-    font-size: 26px;
-}
-
-.project p {
-    line-height: 1.6;
-}
-
 iframe {
     border-radius: 12px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
-/* TECH STACK */
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.tech-stack span {
-    background: #e2e8f0;
-    padding: 10px 18px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
-    background: #0f172a;
-    color: white;
     text-align: center;
     padding: 40px;
+    background: var(--nav-bg);
+    color: white;
 }
 
 </style>
@@ -188,32 +237,29 @@ footer {
     <a href="#projects">Projects</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
+
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+    </div>
 </nav>
 
 <header>
     <h1>Dillip Kumar Panda</h1>
-
-    <p style="font-size:22px; font-weight:600; letter-spacing:0.5px;">
-        Power BI Architect | Custom Visual Developer | BI Consultant
-    </p>
-
-    <p style="max-width:850px; margin:25px auto; line-height:1.7;">
+    <p><strong>Power BI Architect | Custom Visual Developer | BI Consultant</strong></p>
+    <p>
         I architect enterprise-grade Business Intelligence solutions using Power BI,
-        advanced DAX, and scalable data modeling. I extend Power BI capabilities by
-        developing custom .pbiviz visuals with Node.js, enabling tailored KPI frameworks,
-        executive storytelling, and performance-driven analytics platforms that
-        optimize revenue, reduce churn, and power strategic decision-making.
+        advanced DAX, and scalable data modeling. I extend Power BI capabilities
+        by developing custom .pbiviz visuals with Node.js, enabling tailored KPI frameworks
+        and executive storytelling.
     </p>
 
     <div style="margin-top:40px;">
-        <a href="#projects">
-            <button>Explore My Work</button>
-        </a>
-
+        <a href="#projects"><button>Explore My Work</button></a>
         <a href="#resume" style="margin-left:15px;">
-            <button style="background:white; color:#0f172a;">
-                View Resume
-            </button>
+            <button style="background:white; color:#111827;">View Resume</button>
         </a>
     </div>
 </header>
@@ -390,13 +436,34 @@ footer {
     <p>© 2026 Dillip Panda | Power BI Portfolio</p>
 </footer>
 
+<script>
+const toggle = document.getElementById("themeSwitch");
+
+function applyTheme(theme) {
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+        toggle.checked = true;
+    } else {
+        document.body.classList.remove("dark");
+        toggle.checked = false;
+    }
+}
+
+toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        localStorage.setItem("theme", "dark");
+        applyTheme("dark");
+    } else {
+        localStorage.setItem("theme", "light");
+        applyTheme("light");
+    }
+});
+
+window.onload = function() {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+};
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
