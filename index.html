@@ -1,126 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Dillip Panda | Power BI Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dillip Panda | PowerBI Developer Portfolio</title>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f9;
-            color: #333;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        nav {
-            background: #111827;
-            padding: 15px;
-            text-align: center;
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color: #e2e8f0;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(15,23,42,0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
 
-        nav a:hover {
-            color: #0078D4;
-        }
+nav a {
+    color: #e2e8f0;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
 
-        header {
-            background: linear-gradient(135deg,#1f2a44,#0078D4);
-            padding:100px 20px;
-            text-align: center;
-            color: white;
-        }
+nav a:hover {
+    color: #38bdf8;
+}
 
-        header h1 {
-            font-size:48px;
-            margin: 0;
-        }
+header {
+    text-align: center;
+    padding: 120px 20px;
+}
 
-        header p {
-            font-size:20px;
-        }
+header h1 {
+    font-size: 52px;
+    margin: 0;
+    color: #38bdf8;
+}
 
-        section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+header p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
 
-        h2 {
-            border-bottom: 2px solid #0078D4;
-            padding-bottom: 10px;
-        }
+section {
+    padding: 80px 10%;
+}
 
-        .metrics {
-            display:flex;
-            justify-content: space-around;
-            text-align:center;
-            margin-top:40px;
-        }
+h2 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
 
-        .metric-box h3 {
-            font-size:28px;
-            margin:0;
-            color:#0078D4;
-        }
+.metrics {
+    display:flex;
+    justify-content: space-around;
+    text-align:center;
+    margin-top:40px;
+}
 
-        .project {
-            background: white;
-            padding: 25px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
+.metric-box h3 {
+    font-size:32px;
+    margin:0;
+    color:#38bdf8;
+}
 
-        .project:hover {
-            transform: translateY(-6px);
-        }
+.project {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    transition: 0.3s ease;
+}
 
-        button {
-            background: #0078D4;
-            color: white;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.project:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.08);
+}
 
-        button:hover {
-            background:#005fa3;
-        }
+button {
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        footer {
-            background: #1f2a44;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+button:hover {
+    background:#0ea5e9;
+}
 
-        iframe {
-            border-radius: 8px;
-            margin-top: 20px;
-        }
+footer {
+    background: #0f172a;
+    text-align: center;
+    padding: 30px;
+}
 
-        .tech-stack span {
-            display:inline-block;
-            background:#e2e8f0;
-            padding:8px 12px;
-            border-radius:20px;
-            margin:5px;
-            font-size:14px;
-        }
-    </style>
+iframe {
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.tech-stack span {
+    display:inline-block;
+    background: rgba(255,255,255,0.08);
+    padding:10px 15px;
+    border-radius:20px;
+    margin:5px;
+    font-size:14px;
+}
+ul {
+    line-height: 1.7;
+}
+</style>
 </head>
 
 <body>
@@ -134,16 +146,14 @@
 
 <header>
     <h1>Dillip Panda</h1>
-    <p>Power BI Developer | Data Analytics Specialist</p>
-   <p>
-I design scalable Power BI solutions, develop custom .pbiviz visuals using Node.js,
-and build KPI-driven dashboards that reduce churn, optimize revenue,
-and empower data-driven business decisions.
-</p>
-
-    <br>
+    <p><strong>BI Engineer | Power BI & Custom Visual Developer</strong></p>
+    <p>
+    I design scalable Power BI solutions, build custom .pbiviz visuals using Node.js,
+    and engineer KPI-driven analytics platforms that reduce churn, optimize revenue,
+    and empower enterprise decision-making.
+    </p>
     <a href="#projects">
-        <button>View My Work</button>
+        <button>Explore My Work</button>
     </a>
 </header>
 
@@ -155,11 +165,11 @@ and empower data-driven business decisions.
         </div>
         <div class="metric-box">
             <h3>15+</h3>
-            <p>Projects Completed</p>
+            <p>Enterprise Projects</p>
         </div>
         <div class="metric-box">
             <h3>Advanced</h3>
-            <p>DAX & Data Modeling</p>
+            <p>DAX & Modeling</p>
         </div>
     </div>
 </section>
@@ -167,16 +177,15 @@ and empower data-driven business decisions.
 <section id="about">
     <h2>About Me</h2>
     <p>
-I am a Business Intelligence developer with expertise in Power BI, advanced DAX,
-and enterprise-grade data modeling. I extend Power BI capabilities by developing
-custom .pbiviz visuals using Node.js, enabling tailored KPI visualization and
-enhanced analytical storytelling. I build scalable, performance-optimized analytics
-solutions using Power BI, Power Query, SQL, and Azure, transforming complex
-datasets into strategic insights. My work spans KPI framework engineering,
-data governance, churn and workforce analytics, and executive dashboards
-designed for high-impact decision-making.
+    I am a Business Intelligence engineer specializing in Power BI, advanced DAX,
+    and enterprise-grade data modeling. I extend Power BI capabilities through
+    custom .pbiviz visual development using Node.js and the Power BI SDK,
+    enabling enhanced KPI storytelling and tailored analytics experiences.
+    I build scalable, performance-optimized solutions across Azure and Microsoft Fabric
+    environments to transform complex datasets into strategic insights.
     </p>
 </section>
+
 <section>
     <h2>Tech Stack</h2>
     <div class="tech-stack">
@@ -187,49 +196,40 @@ designed for high-impact decision-making.
         <span>Azure</span>
         <span>Microsoft Fabric</span>
         <span>Node.js</span>
-        <span>Custom Power BI Visuals (.pbiviz)</span>
-        <span>Power BI SDK</span>
+        <span>Custom .pbiviz Development</span>
+        <span>Power BI Visuals SDK</span>
+        <span>Row-Level Security</span>
     </div>
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
+    <h2>Featured Projects</h2>
 
     <div class="project">
-        <h3>📊 Customer Churn Analysis</h3>
-
-        <p><strong>Problem:</strong> High churn rate affecting revenue stability.</p>
-        <p><strong>Solution:</strong> Built a segmentation model using contract type, tenure, and usage behavior.</p>
-        <p><strong>Impact:</strong> Identified high-risk segments and recommended retention strategy.</p>
+        <h3>📊 Customer Churn Intelligence</h3>
+        <p><strong>Problem:</strong> High churn impacting recurring revenue.</p>
+        <p><strong>Solution:</strong> Designed segmentation-based churn model using DAX and behavioral analytics.</p>
+        <p><strong>Impact:</strong> Enabled targeted retention strategy for high-risk customer segments.</p>
         <p><strong>Tools:</strong> Power BI, DAX, Data Modeling, Power Query</p>
-        
-        <iframe 
-            title="Customer Churn Dashboard"
-            width="100%" 
-            height="500"
-            src="https://app.powerbi.com/reportEmbed?reportId=0b66b1e5-371e-4736-a1df-e13904fb6edc&autoAuth=true&ctid=a07afcc4-4b2c-4d89-b395-86c168819f9c"
-            frameborder="0"
-            allowFullScreen="true">
-        </iframe>
+
+        <iframe width="100%" height="450"
+        src="https://app.powerbi.com/reportEmbed?reportId=0b66b1e5-371e-4736-a1df-e13904fb6edc&autoAuth=true&ctid=a07afcc4-4b2c-4d89-b395-86c168819f9c"
+        frameborder="0" allowfullscreen></iframe>
     </div>
+
     <div class="project">
-        <h3>👥 HR Attrition Analytics</h3>
-
-        <p><strong>Problem:</strong> High employee attrition with limited visibility into department-level trends.</p>
-        <p><strong>Solution:</strong> Developed an interactive HR dashboard analyzing attrition by tenure, salary band, role, and department.</p>
-        <p><strong>Impact:</strong> Enabled HR leadership to identify high-risk employee segments and improve retention strategy.</p>
+        <h3>👥 HR Attrition Analytics Engine</h3>
+        <p><strong>Problem:</strong> Limited visibility into workforce attrition patterns.</p>
+        <p><strong>Solution:</strong> Built interactive attrition intelligence dashboard with dynamic segmentation.</p>
+        <p><strong>Impact:</strong> Improved leadership insight into workforce planning and retention.</p>
         <p><strong>Tools:</strong> Power BI, DAX, Data Modeling, Power Query</p>
-        <iframe 
-            title="HR Attrition Analytics"
-            width="100%" 
-            height="500"
-            src="https://app.powerbi.com/reportEmbed?reportId=a556bb46-be89-4aac-8215-851c759d3ea2&autoAuth=true&ctid=a07afcc4-4b2c-4d89-b395-86c168819f9c"
-            frameborder="0"
-            allowFullScreen="true">
-        </iframe>
+
+        <iframe width="100%" height="450"
+        src="https://app.powerbi.com/reportEmbed?reportId=a556bb46-be89-4aac-8215-851c759d3ea2&autoAuth=true&ctid=a07afcc4-4b2c-4d89-b395-86c168819f9c"
+        frameborder="0" allowfullscreen></iframe>
     </div>
+
 </section>
-
 <section id="resume">
     <h2>Resume</h2>
 
@@ -314,6 +314,7 @@ designed for high-impact decision-making.
 
 </body>
 </html>
+
 
 
 
