@@ -251,19 +251,29 @@
 
       if (currentChartType === 'table') {
 
+  const chartCanvas = document.getElementById('chart');
   const tableContainer = document.getElementById('tableContainer');
 
-  document.getElementById('chart').classList.add('hidden');
-  tableContainer.classList.remove('hidden');
+  // Destroy existing chart if any
+  if (chartInstance) {
+    chartInstance.destroy();
+    chartInstance = null;
+  }
 
-  // 👇 Add fade animation here
-  tableContainer.classList.add('fade-in');
+  // Hide chart canvas
+  chartCanvas.style.display = 'none';
+
+  // Show table container
+  tableContainer.classList.remove('hidden');
+  tableContainer.style.display = 'block';
 
   renderTable(data, labels, values);
 
   return;
 }
-
+      // Show chart again for non-table types
+      document.getElementById('chart').style.display = 'block';
+      document.getElementById('tableContainer').classList.add('hidden');
       document.getElementById('tableContainer').classList.add('hidden');
       const ctx = document.getElementById('chart').getContext('2d');
       
@@ -371,5 +381,6 @@
   </script>
 </body>
 </html>
+
 
 
