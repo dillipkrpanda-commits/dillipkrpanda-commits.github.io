@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI HR Analytics Assistant</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f4f6f9, #e9eef5);
+      margin: 40px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 { text-align: center; }
+
+    input {
+      width: 65%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 14px;
+      background: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .kpi-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 20px;
+    }
+
+    .kpi-card {
+      flex: 1;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      background: rgba(0,120,212,0.1);
+    }
+
+    .breadcrumb { margin-top: 20px; font-weight: bold; opacity: 0.8; }
+    .dimension-label { margin-top: 5px; font-size: 18px; font-weight: bold; }
+
+    canvas { margin-top: 25px; max-height: 400px; }
+
+    .insight {
+      margin-top: 20px;
+      padding: 20px;
+      border-left: 6px solid #0078D4;
+      background: rgba(0,0,0,0.04);
+      border-radius: 8px;
+    }
+
+    .risk-green { border-left-color: #16a34a; }
+    .risk-amber { border-left-color: #f59e0b; }
+    .risk-red { border-left-color: #dc2626; }
+
+    .risk-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .green { background:#16a34a; }
+    .amber { background:#f59e0b; }
+    .red { background:#dc2626; }
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>AI HR Analytics Assistant</h1>
+
+  <input id="question" placeholder="Ask about employee performance..." />
+  <button onclick="ask()">Ask</button>
+
+  <div class="kpi-row">
+    <div id="kpi" class="kpi-card"></div>
+    <div id="employees" class="kpi-card"></div>
+  </div>
+
+  <div class="breadcrumb" id="breadcrumb"></div>
+  <div class="dimension-label" id="dimensionLabel"></div>
+
+  <canvas id="chart"></canvas>
+
+  <div class="insight" id="insight"></div>
+
+</div>
+
+<script>
+
+let chartInstance = null;
+
+// Demo Mode (GitHub Ready)
+async function ask() {
+
+  const result = {
+    kpi: 3.46,
+    total_employees: 1470,
+    sql: "SELECT AVG(managerRating) FROM employee GROUP BY department",
+    data: [
+      {category: "Human Resources", metric: 3.45},
+      {category: "Sales", metric: 3.44},
+      {category: "Technology", metric: 3.52}
+    ]
+  };
+
+  render(result);
+}
+
+function render(result) {
+
+  const data = result.data;
+  if (!data || data.length === 0) return;
+
+  const labels = data.map(d => d.category);
+  const values = data.map(d => d.metric);
+
+  const ctx = document.getElementById("chart").getContext("2d");
+  if (chartInstance) chartInstance.destroy();
+
+  chartInstance = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: ["#0078D4","#00B7C3","#6B69D6"]
+      }]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+      plugins: {
+        legend: { display: true },
+        datalabels: {
+          color: "#fff",
+          formatter: (value, ctx) => {
+            let sum = ctx.chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+            return (value*100/sum).toFixed(1)+"%";
+          }
+        }
+      }
+    }
+  });
+
+  document.getElementById("kpi").innerText =
+    "Overall KPI: " + result.kpi;
+
+  document.getElementById("employees").innerText =
+    "Total Employees: " + result.total_employees;
+
+  generateExecutiveInsight(labels, values);
+
+  document.getElementById("breadcrumb").innerText =
+    "Metric → Manager Rating";
+
+  document.getElementById("dimensionLabel").innerText =
+    "Grouped by: Department";
+}
+
+function generateExecutiveInsight(labels, values) {
+
+  const total = values.reduce((a,b)=>a+b,0);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+
+  const maxLabel = labels[values.indexOf(max)];
+  const minLabel = labels[values.indexOf(min)];
+
+  const variancePercent = (((max - min) / total) * 100).toFixed(1);
+
+  let riskLevel, riskClass, badgeClass;
+
+  if (variancePercent < 5) {
+    riskLevel = "Low Risk";
+    riskClass = "risk-green";
+    badgeClass = "green";
+  } else if (variancePercent < 15) {
+    riskLevel = "Moderate Risk";
+    riskClass = "risk-amber";
+    badgeClass = "amber";
+  } else {
+    riskLevel = "High Risk";
+    riskClass = "risk-red";
+    badgeClass = "red";
+  }
+
+  const narrative = `
+    <div class="risk-badge ${badgeClass}">${riskLevel}</div>
+    <strong>Executive Narrative:</strong><br><br>
+    ${maxLabel} demonstrates the strongest performance contribution,
+    while ${minLabel} shows comparatively lower results.
+    A performance variance of ${variancePercent}% indicates
+    ${riskLevel === "Low Risk"
+      ? "a balanced departmental structure."
+      : "potential structural imbalance requiring leadership attention."}
+  `;
+
+  const insightBox = document.getElementById("insight");
+  insightBox.className = "insight " + riskClass;
+  insightBox.innerHTML = narrative;
+}
+
+</script>
+</body>
+</html>
