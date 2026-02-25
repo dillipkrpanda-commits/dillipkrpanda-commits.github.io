@@ -250,9 +250,19 @@
       const values = data.map(d => d.metric);
 
       if (currentChartType === 'table') {
-        renderTable(data, labels, values);
-        return;
-      }
+
+  const tableContainer = document.getElementById('tableContainer');
+
+  document.getElementById('chart').classList.add('hidden');
+  tableContainer.classList.remove('hidden');
+
+  // 👇 Add fade animation here
+  tableContainer.classList.add('fade-in');
+
+  renderTable(data, labels, values);
+
+  return;
+}
 
       document.getElementById('tableContainer').classList.add('hidden');
       const ctx = document.getElementById('chart').getContext('2d');
@@ -361,4 +371,5 @@
   </script>
 </body>
 </html>
+
 
