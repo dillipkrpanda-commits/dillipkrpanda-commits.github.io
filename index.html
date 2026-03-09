@@ -6,7 +6,36 @@
 <title>Dillip Kumar Panda | PowerBI Developer Portfolio</title>
 
 <style>
+/* ================= CONTACT FORM ================= */
 
+.contact-card{
+background: var(--card-bg);
+padding:30px;
+border-radius:14px;
+max-width:500px;
+margin-top:30px;
+box-shadow: var(--glow);
+}
+
+.contact-card input,
+.contact-card textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.contact-card button{
+width:100%;
+margin-top:5px;
+}
+
+#resumeResponse{
+margin-top:15px;
+font-size:14px;
+}
 /* ================= THEME VARIABLES ================= */
 :root {
     --bg-color: #ffffff;
@@ -449,38 +478,41 @@ footer {
 
 <p>If you'd like to discuss opportunities or collaborations, feel free to reach out.</p>
 
-<div style="max-width:500px; margin-top:30px;">
+<div class="contact-card">
 
 <input 
 type="text" 
 id="contactName"
 placeholder="Your Name"
-required
-style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"
 >
 
 <input 
 type="email" 
 id="contactEmail"
 placeholder="Your Email"
-required
-style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"
 >
 
 <input 
 type="text" 
 id="contactCompany"
-placeholder="Company"
-style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"
+placeholder="Company (optional)"
 >
 
+<textarea
+id="contactMessage"
+placeholder="Your Message"
+rows="5"
+></textarea>
+
 <button id="sendResumeBtn">
-📩 Send My Resume
+📩 Send Message
 </button>
 
-<p id="resumeResponse" style="margin-top:15px;"></p>
+<p id="resumeResponse"></p>
 
-</div><br>
+</div>
+
+<br>
 
 <p>Email: dillipkrpanda3@gmail.com</p>
 
@@ -492,8 +524,7 @@ View My LinkedIn
 </p>
 
 </section>
-
-<footer>
+    <footer>
     <p>© 2026 Dillip Panda | Power BI Portfolio</p>
 </footer>
 
@@ -534,12 +565,13 @@ resumeBtn.addEventListener("click", async function() {
 const name = document.getElementById("contactName").value;
 const email = document.getElementById("contactEmail").value;
 const company = document.getElementById("contactCompany").value;
+const message = document.getElementById("contactMessage").value;
 
 const responseText = document.getElementById("resumeResponse");
 
-if (!name || !email) {
+if (!name || !email || !message) {
 responseText.style.color = "red";
-responseText.innerText = "Please enter your name and email.";
+responseText.innerText = "Please fill all required fields.";
 return;
 }
 
@@ -552,7 +584,7 @@ return;
 }
 
 resumeBtn.disabled = true;
-responseText.innerText = "Sending resume... (first request may take a few seconds)";
+responseText.innerText = "Sending message...";
 
 try {
 
@@ -567,7 +599,8 @@ body: JSON.stringify({
 name: name,
 email: email,
 company: company,
-role: "Portfolio Request"
+message: message,
+role: "Portfolio Contact"
 })
 
 });
@@ -575,8 +608,12 @@ role: "Portfolio Request"
 const data = await response.json();
 
 if (response.ok) {
+document.getElementById("contactName").value = "";
+document.getElementById("contactEmail").value = "";
+document.getElementById("contactCompany").value = "";
+document.getElementById("contactMessage").value = "";
 responseText.style.color = "green";
-responseText.innerText = "Resume sent successfully! Please check your inbox.";
+responseText.innerText = "Message sent successfully! My resume has also been emailed to you.";
 resumeBtn.disabled = false;
 } else {
 responseText.style.color = "red";
@@ -593,10 +630,10 @@ resumeBtn.disabled = false;
 }
 
 });
-
 </script>
 </body>
 </html>
+
 
 
 
