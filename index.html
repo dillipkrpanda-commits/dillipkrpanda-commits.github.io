@@ -505,7 +505,7 @@ rows="5"
 ></textarea>
 
 <button id="sendResumeBtn">
-📩 Send Message
+📩 Contact Me
 </button>
 
 <p id="resumeResponse"></p>
@@ -558,9 +558,9 @@ window.onload = function() {
 </script>
 <script>
 
-const resumeBtn = document.getElementById("sendResumeBtn");
+const contactBtn = document.getElementById("sendResumeBtn");
 
-resumeBtn.addEventListener("click", async function() {
+contactBtn.addEventListener("click", async function() {
 
 const name = document.getElementById("contactName").value;
 const email = document.getElementById("contactEmail").value;
@@ -583,7 +583,7 @@ responseText.innerText = "Please enter a valid email address.";
 return;
 }
 
-resumeBtn.disabled = true;
+contactBtn.disabled = true;
 responseText.innerText = "Sending message...";
 
 try {
@@ -600,7 +600,7 @@ name: name,
 email: email,
 company: company,
 message: message,
-role: "Portfolio Contact"
+role: "Recruiter Contact"
 })
 
 });
@@ -608,24 +608,31 @@ role: "Portfolio Contact"
 const data = await response.json();
 
 if (response.ok) {
+responseText.style.color = "green";
+responseText.innerText = "Thank you! Your message has been sent successfully.";
+
+contactBtn.disabled = false;
+
 document.getElementById("contactName").value = "";
 document.getElementById("contactEmail").value = "";
 document.getElementById("contactCompany").value = "";
 document.getElementById("contactMessage").value = "";
-responseText.style.color = "green";
-responseText.innerText = "Message sent successfully! My resume has also been emailed to you.";
-resumeBtn.disabled = false;
+
 } else {
+
 responseText.style.color = "red";
 responseText.innerText = data.detail || "Something went wrong.";
-resumeBtn.disabled = false;
+
+contactBtn.disabled = false;
+
 }
 
 } catch (error) {
 
 responseText.style.color = "red";
 responseText.innerText = "Server error. Please try again later.";
-resumeBtn.disabled = false;
+
+contactBtn.disabled = false;
 
 }
 
@@ -633,6 +640,7 @@ resumeBtn.disabled = false;
 </script>
 </body>
 </html>
+
 
 
 
