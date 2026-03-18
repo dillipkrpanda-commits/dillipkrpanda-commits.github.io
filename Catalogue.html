@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Catalogue</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #e2e8f0;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* TITLE */
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* HOOK */
+.hook {
+    font-size: 13px;
+    color: #38bdf8;
+    margin-bottom: 14px;
+}
+
+/* TAGS */
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: #334155;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    margin: 3px;
+}
+
+/* HOVER OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.95);
+    padding: 20px;
+    opacity: 0;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+/* DESCRIPTION */
+.desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cbd5f5;
+}
+
+.overlay-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>📦 Visual Catalogue</h1>
+<p class="subtitle">Custom Power BI visuals built for real-world dashboards</p>
+
+<div class="grid">
+
+    <!-- CARD TEMPLATE -->
+    
+    <!-- 1 -->
+    <div class="card">
+        <div class="title">Attrition Risk Dial</div>
+        <div class="hook">Spot high-risk employees before they decide to leave.</div>
+        <div class="tags">
+            <span class="tag">HR</span><span class="tag">Attrition</span><span class="tag">Risk</span><span class="tag">KPI</span><span class="tag">Executive</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Attrition Risk Dial</div>
+            <div class="desc">A high-impact dial visual that instantly highlights employee attrition risk levels, enabling HR leaders to prioritize retention strategies at a glance. Designed for executive dashboards with clear risk segmentation and intuitive thresholds.</div>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+        <div class="title">Attrition Risk Gauge</div>
+        <div class="hook">Track workforce risk in real time with clear, actionable signals.</div>
+        <div class="tags">
+            <span class="tag">HR</span><span class="tag">Gauge</span><span class="tag">Attrition</span><span class="tag">Analytics</span><span class="tag">KPI</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Attrition Risk Gauge</div>
+            <div class="desc">A modern gauge visual to track workforce attrition risk in real time. Combines visual clarity with threshold-based alerts, making it easy to monitor risk trends and take proactive action.</div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+        <div class="title">Attrition Risk Heatmap</div>
+        <div class="hook">Uncover hidden attrition hotspots across your organization instantly</div>
+        <div class="tags">
+            <span class="tag">HR</span><span class="tag">Heatmap</span><span class="tag">Attrition</span><span class="tag">Insights</span><span class="tag">Workforce</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Attrition Risk Heatmap</div>
+            <div class="desc">Visualize attrition hotspots across departments, roles, or locations with a dynamic heatmap. Quickly identify patterns and high-risk clusters to drive targeted retention strategies.</div>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+        <div class="title">Demographic KPI</div>
+        <div class="hook">Understand your workforce at a glance—diversity, balance, and trends</div>
+        <div class="tags">
+            <span class="tag">HR</span><span class="tag">Demographics</span><span class="tag">Diversity</span><span class="tag">KPI</span><span class="tag">Insights</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Demographic KPI</div>
+            <div class="desc">Track workforce composition with a clean KPI visual showing diversity, gender ratio, age distribution, and more. Ideal for DEI dashboards and strategic workforce planning.</div>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+        <div class="title">Employee File Card</div>
+        <div class="hook">Everything you need to know about an employee, in one powerful view.</div>
+        <div class="tags">
+            <span class="tag">HR</span><span class="tag">Profile</span><span class="tag">Employee</span><span class="tag">Card</span><span class="tag">Drillthrough</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Employee File Card</div>
+            <div class="desc">A detailed employee profile card that consolidates key information, performance metrics, and risk indicators into a single, easy-to-read view. Perfect for HR drill-through pages.</div>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+        <div class="title">Network Relationship Visual</div>
+        <div class="hook">Reveal who really connects your organization behind the scenes</div>
+        <div class="tags">
+            <span class="tag">Network</span><span class="tag">Relationships</span><span class="tag">Org</span><span class="tag">Analytics</span><span class="tag">Graph</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Network Relationship Visual</div>
+            <div class="desc">Reveal hidden organizational connections with an interactive network graph. Analyze collaboration patterns, team dependencies, and communication flow across the workforce</div>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+        <div class="title">Network Route Visual</div>
+        <div class="hook">Visualize how information, people, and processes actually flow</div>
+        <div class="tags">
+            <span class="tag">Network</span><span class="tag">Flow</span><span class="tag">Routes</span><span class="tag">Connections</span><span class="tag">Visualization</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Network Route Visual</div>
+            <div class="desc">Map relationships and data flows with directional routing between entities. Ideal for showcasing reporting structures, workflows, or movement across systems.</div>
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+        <div class="title">Performance Radar</div>
+        <div class="hook">Compare performance across dimensions with absolute clarity</div>
+        <div class="tags">
+            <span class="tag">Performance</span><span class="tag">Radar</span><span class="tag">Comparison</span><span class="tag">Analytics</span><span class="tag">HR</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Performance Radar</div>
+            <div class="desc">Compare employee or team performance across multiple dimensions using a responsive radar chart. Designed for dynamic slicing and real-time performance benchmarking.</div>
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+        <div class="title">Population Pyramid</div>
+        <div class="hook">See workforce distribution patterns that numbers alone can’t reveal.</div>
+        <div class="tags">
+            <span class="tag">Demographics</span><span class="tag">Population</span><span class="tag">HR</span><span class="tag">Distribution</span><span class="tag">Insights</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Population Pyramid</div>
+            <div class="desc">A classic demographic visualization reimagined for workforce analytics. Compare distributions such as gender or age across groups with a clean, symmetrical layout.</div>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+        <div class="title">Risk Simulator Panel</div>
+        <div class="hook">Test decisions before they impact your business.</div>
+        <div class="tags">
+            <span class="tag">Simulation</span><span class="tag">What-If</span><span class="tag">Risk</span><span class="tag">Analytics</span><span class="tag">Advanced</span>
+        </div>
+        <div class="overlay">
+            <div class="overlay-title">Risk Simulator Panel</div>
+            <div class="desc">An interactive simulation panel that allows users to model and predict risk scenarios based on input variables. Perfect for decision-makers exploring “what-if” analysis in HR or operations.</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
