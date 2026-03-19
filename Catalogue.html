@@ -64,11 +64,12 @@ h1 {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* IMAGE */
+/* IMAGE (RESPONSIVE FIX) */
 .preview {
     width: 100%;
-    height: 160px;
-    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #020617;
     border-radius: 12px;
     margin-bottom: 12px;
     transition: 0.3s;
@@ -101,7 +102,7 @@ h1 {
     margin: 3px;
 }
 
-/* FEATURED BADGE */
+/* BADGE */
 .badge {
     position: absolute;
     top: 10px;
@@ -156,7 +157,7 @@ h1 {
 
 <!-- 1 -->
 <div class="card">
-<img src="Images/Attrition-Risk-Dial.png" class="preview" loading="lazy">
+<img src="Images/Attrition-Risk-Dial.png" class="preview">
 <div class="title">Attrition Risk Dial</div>
 <div class="hook">Spot high-risk employees before they decide to leave.</div>
 <span class="tag">HR</span><span class="tag">Risk</span><span class="tag">KPI</span>
@@ -168,7 +169,7 @@ h1 {
 
 <!-- 2 -->
 <div class="card">
-<img src="Images/Attrition-Risk-Gauge.png" class="preview" loading="lazy">
+<img src="Images/Attrition-Risk-Gauge.png" class="preview">
 <div class="title">Attrition Risk Gauge</div>
 <div class="hook">Track workforce risk in real time.</div>
 <span class="tag">HR</span><span class="tag">Gauge</span><span class="tag">Analytics</span>
@@ -180,7 +181,7 @@ h1 {
 
 <!-- 3 -->
 <div class="card">
-<img src="Images/Attrition-Risk-Heatmap.png" class="preview" loading="lazy">
+<img src="Images/Attrition-Risk-Heatmap.png" class="preview">
 <div class="title">Attrition Risk Heatmap</div>
 <div class="hook">Uncover hidden attrition hotspots instantly</div>
 <span class="tag">HR</span><span class="tag">Heatmap</span><span class="tag">Insights</span>
@@ -192,19 +193,19 @@ h1 {
 
 <!-- 4 -->
 <div class="card">
-<img src="Images/Demographic-KPI.png" class="preview" loading="lazy">
+<img src="Images/Demographic-KPI.png" class="preview">
 <div class="title">Demographic KPI</div>
 <div class="hook">Understand workforce diversity at a glance</div>
 <span class="tag">HR</span><span class="tag">KPI</span>
 <div class="overlay">
 <div class="overlay-title">Demographic KPI</div>
-<div class="desc">Track diversity, age distribution, and workforce composition.</div>
+<div class="desc">Track diversity and workforce composition.</div>
 </div>
 </div>
 
 <!-- 5 -->
 <div class="card">
-<img src="Images/Employee-File-Card.png" class="preview" loading="lazy">
+<img src="Images/Employee-File-Card.png" class="preview">
 <div class="title">Employee File Card</div>
 <div class="hook">All employee insights in one view</div>
 <span class="tag">HR</span><span class="tag">Profile</span>
@@ -216,100 +217,100 @@ h1 {
 
 <!-- 6 -->
 <div class="card">
-<img src="Images/Network-Relationship.png" class="preview" loading="lazy">
+<img src="Images/Network-Relationship.png" class="preview">
 <div class="title">Network Relationship Visual</div>
 <div class="hook">Reveal hidden organizational connections</div>
 <span class="tag">Network</span>
 <div class="overlay">
 <div class="overlay-title">Network Relationship Visual</div>
-<div class="desc">Analyze collaboration and dependencies across teams.</div>
+<div class="desc">Analyze collaboration and dependencies.</div>
 </div>
 </div>
 
 <!-- 7 -->
 <div class="card">
-<img src="Images/Network-Routes-Visual.png" class="preview" loading="lazy">
+<img src="Images/Network-Routes-Visual.png" class="preview">
 <div class="title">Network Route Visual</div>
 <div class="hook">Visualize data and process flow</div>
 <span class="tag">Flow</span>
 <div class="overlay">
 <div class="overlay-title">Network Route Visual</div>
-<div class="desc">Map relationships and directional flows.</div>
+<div class="desc">Map directional flows across systems.</div>
 </div>
 </div>
 
 <!-- 8 -->
 <div class="card">
-<img src="Images/Performance-Radar.png" class="preview" loading="lazy">
+<img src="Images/Performance-Radar.png" class="preview">
 <div class="title">Performance Radar</div>
 <div class="hook">Compare performance across dimensions</div>
 <span class="tag">Performance</span>
 <div class="overlay">
 <div class="overlay-title">Performance Radar</div>
-<div class="desc">Multi-dimensional comparison for teams or individuals.</div>
+<div class="desc">Multi-dimensional comparison tool.</div>
 </div>
 </div>
 
 <!-- 9 -->
 <div class="card">
-<img src="Images/Population-Pyramid.png" class="preview" loading="lazy">
+<img src="Images/Population-Pyramid.png" class="preview">
 <div class="title">Population Pyramid</div>
-<div class="hook">See workforce distribution patterns clearly</div>
+<div class="hook">See workforce distribution clearly</div>
 <span class="tag">Demographics</span>
 <div class="overlay">
 <div class="overlay-title">Population Pyramid</div>
-<div class="desc">Visualize age and gender distributions.</div>
+<div class="desc">Visualize population distributions.</div>
 </div>
 </div>
 
 <!-- 10 -->
 <div class="card">
-<img src="Images/Risk-Simulator-Panel.png" class="preview" loading="lazy">
+<img src="Images/Risk-Simulator-Panel.png" class="preview">
 <div class="title">Risk Simulator Panel</div>
 <div class="hook">Test decisions before they impact your business</div>
 <span class="tag">Simulation</span>
 <div class="overlay">
 <div class="overlay-title">Risk Simulator Panel</div>
-<div class="desc">Interactive simulation for risk scenarios.</div>
+<div class="desc">Interactive risk simulation tool.</div>
 </div>
 </div>
 
-<!-- 11 FEATURED -->
+<!-- 11 -->
 <div class="card">
 <span class="badge">🔥 Featured</span>
-<img src="Images/Risk-KPI-Card.png" class="preview" loading="lazy">
+<img src="Images/Risk-KPI-Card.png" class="preview">
 <div class="title">Risk KPI Card</div>
-<div class="hook">Monitor critical risk metrics in one view</div>
+<div class="hook">Monitor critical risk metrics</div>
 <span class="tag">KPI</span><span class="tag">Risk</span>
 <div class="overlay">
 <div class="overlay-title">Risk KPI Card</div>
-<div class="desc">Executive dashboard for multi-metric risk tracking.</div>
+<div class="desc">Executive dashboard for risk monitoring.</div>
 </div>
 </div>
 
-<!-- 12 FEATURED -->
+<!-- 12 -->
 <div class="card">
 <span class="badge">🔥 Featured</span>
-<img src="Images/What-If-scenario-planner.png" class="preview" loading="lazy">
+<img src="Images/What-If-scenario-planner.png" class="preview">
 <div class="title">What-If Scenario Planner</div>
 <div class="hook">Simulate revenue and cost impact</div>
-<span class="tag">What-If</span><span class="tag">Finance</span>
+<span class="tag">Finance</span>
 <div class="overlay">
 <div class="overlay-title">What-If Scenario Planner</div>
-<div class="desc">Dynamic simulation for decision-making.</div>
+<div class="desc">Dynamic planning and simulation tool.</div>
 </div>
 </div>
 
-<!-- 13 FEATURED -->
+<!-- 13 -->
 <div class="card">
 <span class="badge">🔥 Featured</span>
-<img src="Images/PL-Variance-KPI.png" class="preview" loading="lazy">
+<img src="Images/PL-Variance-KPI.png" class="preview">
 <div class="title">P&L Variance KPI</div>
-<div class="hook">Track revenue, expenses, and profit variance</div>
+<div class="hook">Track financial performance and variance</div>
 <span class="tag">Finance</span><span class="tag">KPI</span>
 <div class="overlay">
 <div class="overlay-title">P&L Variance KPI</div>
-<div class="desc">Complete financial performance and variance analysis.</div>
+<div class="desc">Comprehensive financial analytics dashboard.</div>
 </div>
 </div>
 
